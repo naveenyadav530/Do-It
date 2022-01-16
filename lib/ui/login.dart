@@ -104,6 +104,13 @@ class _LogInState extends State<LogIn> {
           ..showSnackBar(const SnackBar(
               content: Text("Internet Down, Check Your Connection")));
         break;
+      case 'wrong-password':
+        setState(() => progress = false);
+        ScaffoldMessenger.of(context)
+          ..removeCurrentSnackBar()
+          ..showSnackBar(const SnackBar(
+              content: Text("Invalid password!")));
+        break;
 
       default:
         setState(() => progress = false);
